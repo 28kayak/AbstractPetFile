@@ -41,8 +41,9 @@ public class DoubleMatrix
 	{
 		/*private method (makeDoubMatrix) that does the same thing as getDoubMatrix (in Prog. HW #2), 
 		 * but assigns the new 2-dim. array to the instance doubMatrix variable and has NO RETURN VALUE.*/
-		double [][] doubMatrix = new double[row][col];
-		
+		doubMatrix = new double[row][col];
+		System.out.println("ROW =" + doubMatrix.length);
+		System.out.println("Columnt  " + doubMatrix[0].length);
 		for(int i=0; i<row;i++){
 			for(int j=0; j<col;j++){
 				doubMatrix[i][j] = (int)(Math.random() * (100.0-0.0+1) ) + 0.0;

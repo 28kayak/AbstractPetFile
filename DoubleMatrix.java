@@ -4,8 +4,8 @@ public class DoubleMatrix
 {
 	
 	private double[][] doubMatrix;
-	
-	public DoubleMatrix(int row, int col)
+	int row;
+	public DoubleMatrix(int row1, int col)
 	{
 		/*constructor with an int for the first dimension, and an int for the second dimension 
 		 * and call the makeDoubMatrix private instance method (see below) Be sure to check if each parameter > 0 
@@ -119,7 +119,7 @@ public class DoubleMatrix
 		System.out.println(one);
 		for(int i=0; i<this.doubMatrix.length;i++){
 			for(int j=0; j<this.doubMatrix[i].length;j++){
-		System.out.println(this.doubMatrix[i][j]);
+		System.out.print(this.doubMatrix[i][j]);
 			}System.out.println("\n");
 		}
 		

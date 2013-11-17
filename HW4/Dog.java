@@ -10,7 +10,7 @@ package HW4;
 public class Dog extends Pet 
 {
 	 private int tricks;
-	 public Dog(String name, int birthyear)
+	 public Dog(String name, int birthyear, int tricks)
 	 {
 		 super(name, birthyear);
 	 }

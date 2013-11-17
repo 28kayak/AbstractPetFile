@@ -4,30 +4,36 @@ import java.util.*;
 public abstract class Pet 
 {
 	
-	protected String name = "";
-	protected int birthyear = 0;
+	protected String name;
+	protected int birthyear;
 	
 //Two constructors (one with a String and an int which calls the mutators, one default)
 	public Pet(String str, int d)
 	{
+		name = setName(str);
+		birthyear = setBirthyear(d);
 		
 	}//constructor_1
 	
 	public Pet()
 	{
 		name = "";
+		birthyear = 0;
 		
 		
 	}//constructor_2
 	
 //accessor methods, one for each instance variable (and have NO PARAMETERS)
 	public String getName(){ 
-		String nam = name;
-		return nam;
+		//String nam = name;
+		
+		return name;//getMethod or accessor method is to access class variable, 
+		//so need not to create another variable.
 		}
 	public int getBirthyear(){
-		int bir = birthyear;
-		return bir;
+		//int bir = birthyear;
+		
+		return birthyear;
 		}
 	
 //mutator methods, one each for each variable, but each must check if the parameter is invalid 
@@ -35,7 +41,7 @@ public abstract class Pet
 	//but don't change instance variable if invalid!
 	public String setName(String nam){
 		if(nam != null || nam.length() > 0){
-		this.name = nam;
+		this.name = nam;//here, name = nam is enough because name imply this.name, so essentially same. 
 		}
 		return this.name;
 		}

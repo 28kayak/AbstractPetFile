@@ -4,8 +4,8 @@ import java.util.*;
 public abstract class Pet 
 {
 	
-	protected String name;
-	protected int birthyear;
+	protected String name; //maybe need to declare as a private variable/
+	protected int birthyear;//same here
 	
 //Two constructors (one with a String and an int which calls the mutators, one default)
 	public Pet(String str, int d)

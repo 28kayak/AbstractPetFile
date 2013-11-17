@@ -7,7 +7,13 @@ package HW4;
 - a method (in the same class as main that you write) to return how many Cats in the array (if any) are indoor Cats (described in B. below)
 - If the return value is >= 0, print the how many cats are indoor cats, or if it is -1, print "No cats".
 */
+import java.util.Scanner;
 public class Driver
 {
+	public static void main(String [] args)
+	{
+		//Pet cat = new Cat();
+		
+	}
 
 }

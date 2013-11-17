@@ -35,6 +35,7 @@ public class Cat extends Pet
 
 	private boolean indoor;
 	
+	
 	public Cat(String name, int birthyear, boolean ind)
 	{
 		super(name,birthyear);
@@ -55,4 +56,33 @@ public class Cat extends Pet
 	{
 		return indoor;
 	}
+	@Override
+	int convertYears()
+	{//1 cat year is 15 human years, 2 cat years is 24 human years, add 4 human years for every cat year over 2. 
+		int convertedYear = 0;
+		return convertedYear;
+		
+	}
+	@Override
+	String speak(){
+		String speak;
+		if(getIndoor())
+		{//indoor cat
+			speak = "meow";
+		}
+		else
+		{
+			speak = "MEOW";
+		}
+		return speak;
+
+	}
+	@Override
+	public String toString()
+	{
+		String catData;
+		catData = super.toString() + getIndoor();
+		return catData;
+	}
+	
 }

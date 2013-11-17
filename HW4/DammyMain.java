@@ -19,9 +19,12 @@ A.In the method that reads and parses the input, read into a String, tokenize (u
 import java.util.Scanner;
 public class DammyMain 
 {
-	static Scanner scan = new Scanner(System.in);
+	static Scanner intscan = new Scanner(System.in);
+	static Scanner stringscan = new Scanner(System.in);
+	static Pet[] alist;
 	public static void main(String[] args) 
 	{
+		/*
 		Pet[] pets = new Pet[5];
 		pets[0] = new Cat("Mike",2011,true);
 		pets[1] = new Dog("Pochi",2000,5);
@@ -29,18 +32,18 @@ public class DammyMain
 		pets[3] = new Cat("Sushi",2013, true);
 		pets[4] = new Dog("Hachi",1999,55);
 		
-		for(int index = 0; index < pets.length; index++)
-		{
-			System.out.println(pets[index].toString());
-		}
+		
+		*/
+		createPetList();
+		printList();
 	}
 	public static Pet[] createPetList()
 	{
-		String name, byear, data;
+		//String name, byear, data;
 		System.out.println("Enter number of indexes in your list");
-		int listNum = scan.nextInt();
+		int listNum = intscan.nextInt();
 		
-		Pet[] alist = new Pet[listNum];
+		alist = new Pet[listNum];
 		for(int index = 0; index < alist.length ;index++)
 		{
 			alist[index] = readInfo();
@@ -52,18 +55,22 @@ public class DammyMain
 	
 	public static Pet readInfo()
 	{
+		
 		String name;
 		int byear; 
 		String other;
+		String type;
+		System.out.println("Enter animal type Dog or Cat");
+		type = stringscan.nextLine();
 		System.out.println("Enter pet's name: ");
-		name = scan.nextLine();
+		name = stringscan.nextLine();
 		System.out.println("Enter his/her birth year: ");
-		byear = scan.nextInt();
+		byear = intscan.nextInt();
 		
-		if(//neko nara)
+		if(type.equalsIgnoreCase("Cat"))
 		{//Need to think how do you determine which class is provided by a user.
 			System.out.println("Is your cat indoor? Type Y for yes, otherwise N");
-			other = scan.nextLine();
+			other = stringscan.nextLine();
 			if(other.equalsIgnoreCase("Y"))
 			{
 				other = "true";
@@ -74,16 +81,24 @@ public class DammyMain
 			}
 			return new Cat(name, byear, Boolean.valueOf(other)); 
 		}
-		else
+		else if(type.equalsIgnoreCase("Dog"))
 		{//inu naraba 
 			System.out.println("How many tricks does the dag have?");
-			other = scan.nextLine();
+			other = stringscan.nextLine();
 			return new Dog(name, byear, Integer.valueOf(other) );
 		}
-		
-		
-		
-		
+		else
+		{
+			System.out.println("Invalid Animal Type");
+			return null;
+		}
+	}
+	public static void printList()
+	{
+		for(int index = 0; index < alist.length; index++)
+		{
+			System.out.println(alist[index].toString());
+		}
 	}
 
 }

@@ -86,11 +86,11 @@ public class Cat extends Pet
 		catData = super.toString();
 		if(getIndoor())
 		{
-			catData += " Type: Indoor Cat";
+			catData += " Type: Indoor Cat" + " speak: "+ speak();
 		}
 		else
 		{
-			catData += " Type: Outdoor Cat";
+			catData += " Type: Outdoor Cat" + " speak: "+ speak();
 		}
 		
 		

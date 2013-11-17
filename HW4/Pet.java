@@ -4,7 +4,7 @@ import java.util.*;
 public abstract class Pet 
 {
 	
-	protected String name; //maybe need to declare as a private variable/
+	protected String name; //maybe need to declare as a private variable
 	protected int birthyear;//same here
 	
 //Two constructors (one with a String and an int which calls the mutators, one default)
@@ -70,5 +70,5 @@ public abstract class Pet
 //an abstract method called speak( ) which returns a String (and has NO PARAMETERS)
 	abstract String speak();
 //toString method** (overriding Object's toString for the name of the class, each variable name and their values
-	public String toString(){ return getName()+getBirthyear();}
+	public String toString(){ return "Name: " + getName() + " BirthYear: " +getBirthyear();}
 }//end superclass Pet

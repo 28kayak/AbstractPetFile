@@ -9,5 +9,37 @@ package HW4;
 * BUT NOT convertYears( ) value and NOT speak() value!)*/
 public class Dog extends Pet 
 {
+	 private int tricks;
+	 public Dog(String name, int birthyear)
+	 {
+		 super(name, birthyear);
+	 }
+	 
+	 
+	 
+	 
+	 @Override
+	 public String toString()
+	 {
+		 return super.toString();
+	 }
 
+
+
+
+	@Override
+	int convertYears() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+
+	@Override
+	String speak() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }

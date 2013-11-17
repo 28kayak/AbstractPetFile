@@ -75,6 +75,20 @@ public class Driver
 					+"Speak: " +pets[index].speak());
 		}
 	}
+	/**
+	 * Count indoor cats
+	 * @param pets
+	 * @return indCats If the return value is >= 0, 
+	 * print the how many cats are indoor cats, 
+	 * or if it is -1, print "No cats".
+	 * 
+	 * In the method that finds how many Pets in the array are indoor cats,
+  		traverse the array USING A LOOP and USING THE instanceof operator in the proper place. 
+  		Return the number of Pets in the array that are indoor cats, but return -1 if there are NO cats. 
+ 	 	You'll need a separate variable to indicate if there are any cats.
+ 	 	You'll need to use the cast operator in this method.
+  		DON'T PRINT IN THIS METHOD.
+	 */
 	static int countCat(Pet[] pets)
 	{
 		int indCats = 0;
@@ -82,7 +96,7 @@ public class Driver
 		{
 			if(pets[index] instanceof Cat)
 			{
-				boolean ind = pets[index].getIndoor();
+				
 			}
 			
 		}

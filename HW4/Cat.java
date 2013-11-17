@@ -38,14 +38,15 @@ public class Cat extends Pet
 	
 	public Cat(String name, int birthyear, boolean ind)
 	{
-		super(name,birthyear);
-		setIndoor(ind);
+		super(name,birthyear);//call superclass's constructor 
+		setIndoor(ind);//set if cat is indoor or not seperatly 
 		
 	}
 	public Cat()
 	{
-		super.name = "";
-		super.birthyear = 0;
+		super.name = "";//if you change name in superclass to private, you need to edit as set(name).
+		super.birthyear = 0;//same here 
+		//super.name point name of superclass, so that you do not need to re-define name in cat class(subclass)
 		indoor = true;
 	}
 	public void setIndoor(boolean ind)
@@ -60,6 +61,7 @@ public class Cat extends Pet
 	int convertYears()
 	{//1 cat year is 15 human years, 2 cat years is 24 human years, add 4 human years for every cat year over 2. 
 		int convertedYear = 0;
+		
 		return convertedYear;
 		
 	}
@@ -81,7 +83,18 @@ public class Cat extends Pet
 	public String toString()
 	{
 		String catData;
-		catData = super.toString() + getIndoor();
+		catData = super.toString();
+		if(getIndoor())
+		{
+			catData += " Type: Indoor Cat";
+		}
+		else
+		{
+			catData += " Type: Outdoor Cat";
+		}
+		
+		
+	
 		return catData;
 	}
 	

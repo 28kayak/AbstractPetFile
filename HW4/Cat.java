@@ -35,12 +35,24 @@ public class Cat extends Pet
 
 	private boolean indoor;
 	
-	public Cat(String name, int birthyear)
+	public Cat(String name, int birthyear, boolean ind)
 	{
 		super(name,birthyear);
+		setIndoor(ind);
+		
 	}
 	public Cat()
 	{
-		
+		super.name = "";
+		super.birthyear = 0;
+		indoor = true;
+	}
+	public void setIndoor(boolean ind)
+	{
+		indoor = ind;
+	}
+	public boolean getIndoor()
+	{
+		return indoor;
 	}
 }

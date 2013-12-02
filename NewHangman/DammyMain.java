@@ -8,7 +8,7 @@ public class DammyMain
 		//data.read();
 		//data.shuffle();
 		System.out.println("Let's hangman!");
-		Hangman hangman = new Hangman();
+		/*Hangman hangman = new Hangman();
 		String answer = hangman.getAnswer();
 		System.out.println("answer = " + answer);
 		hangman.newgame();
@@ -19,6 +19,8 @@ public class DammyMain
 		System.out.println("guessed letters:" +hangman.getGuess());
 		System.out.println("current answer:" +hangman.getCurrentAnswer());
 		System.out.println("left chance" + hangman.getLeftChance());
+		*/
+		
 	}
 
 }

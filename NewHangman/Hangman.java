@@ -10,6 +10,7 @@ public class Hangman
 	private StringBuilder correct;
 	private StringBuilder guess;
 	Scanner scan = new Scanner(System.in);
+	public enum Status {checked, correctGuess, incorrectGuess, win, lose, inprogress}
 	
 	public Hangman()
 	{
@@ -53,13 +54,7 @@ public class Hangman
 			//System.out.println("while loop");
 			for(int i=0; i<=newLength;i++)
 			{
-				//System.out.println("answer length = " + answer.length());
-				//System.out.println("newLength = " + newLength);
-				//System.out.println("i = " + i);
 				correct.append("_ ");
-				//System.out.println("After appending correct");
-				//System.out.println("the answer is "+answer);
-				//System.out.println("Current Ans = " + getCurrentAnswer());
 			}
 		}
 		else	 
@@ -132,15 +127,16 @@ for example,
 1 if guessedcorrectly, but hasn't completed the answer word, -1 if guessed incorrectly, 
 2 if got the whole answer, -2 if ran out of guesses. If using an int status,
 declare public static final int variables or enum type.*/
-	public enum Status {checked, correctGuess, incorrectGuess, win, lose}
+
 	
 	public Status processGuess(String letter)
 	{
 		//guessLeft;
 		//String letter;
+		Status result = Status.inprogress;
 		System.out.println("Playing new Game");
 		
-		//while(chance > 0)
+		//while(guessLeft > 0)
 		//{
 			System.out.println("Current word: \n" + correct);
 			//System.out.println("Current Answer: \n" + answer);
@@ -152,13 +148,14 @@ declare public static final int variables or enum type.*/
 				if(!isComplete())
 				{
 					System.out.println("correct but not complete yet");
-					return Status.correctGuess;
+					//return Status.correctGuess; 
+					result = Status.correctGuess;
 				}
 			} 
 			else if(isChecked(letter))
 			{
 				System.out.println("You already guessed " + letter);
-				return Status.checked;
+				result = Status.checked;
 			}
 			else 
 			{
@@ -166,7 +163,7 @@ declare public static final int variables or enum type.*/
 				System.out.println("Wrong!");
 				guessLeft = getLeftChance() - 1;;
 				replaceWrong(letter);
-				return Status.incorrectGuess;
+				result = Status.incorrectGuess;
 				//System.out.println("Wrong! You have "+chance+" guesses left.");
 				
 				//append guesses one, increment one to incorrect;
@@ -174,13 +171,14 @@ declare public static final int variables or enum type.*/
 		//}//while
 		if(guessLeft == 0)
 		{
-			System.out.println("You Lose!! The correct answer was '" + answer + "'");
-			return Status.lose;
+			//System.out.println("You Lose!! The correct answer was '" + answer + "'");
+			result = Status.lose;
 		} else 
 		{
-			System.out.println("You Win!!");
-			return Status.win;
+			//System.out.println("You Win!!");
+			result = Status.win;
 		}
+		return result;
 	
 	}//processGuess
 	

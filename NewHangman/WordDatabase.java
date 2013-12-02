@@ -91,11 +91,12 @@ public class WordDatabase implements Iterator<String>
 				
 				result = true;
 			}
-			System.out.println("After while");
-			for(int i = 0; i < al.size(); i++)
+			//System.out.println("After while");
+			/*for(int i = 0; i < al.size(); i++)
 			{
 				System.out.println(i + al.get(i));
 			}
+			*/
 		}
 		catch(FileNotFoundException ex)
 		{

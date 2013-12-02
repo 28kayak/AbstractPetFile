@@ -50,13 +50,22 @@ public class Hangman
 			correct = new StringBuilder();
 			guess = new StringBuilder();
 			System.out.println("the answer is "+answer);
-		
-			while(answer != null)
+			int newLength = answer.length() ;
+			if(answer != null)
 			{
-				for(int i=0; i<answer.length();i++){
-				correct.append("_ ");
+				//System.out.println("while loop");
+				
+				for(int i=0; i<=newLength;i++)
+				{
+					//System.out.println("answer length = " + answer.length());
+					//System.out.println("newLength = " + newLength);
+					//System.out.println("i = " + i);
+					correct.append("_ ");
+					//System.out.println("After appending correct");
+					//System.out.println("the answer is "+answer);
+					//System.out.println("Current Ans = " + getCurrentAnswer());
+				}
 			}
-		}
 		}catch(ArrayIndexOutOfBoundsException ie) 
 		{
 			ie.printStackTrace();
@@ -78,7 +87,7 @@ public class Hangman
 	}
 	
 	private String getString(){
-		System.out.println("Enter a letter: ");
+		System.out.println("Enter a letter: !");
 		String aletter = scan.nextLine().toLowerCase();
 		return aletter;
 	}
@@ -94,23 +103,29 @@ public class Hangman
 		}
 	}
 		
-	private void replaceCorrect(String correctLetter){
+	private void replaceCorrect(String correctLetter)
+	{
+			//correct = new StringBuilder();
 			int wordIndex = answer.indexOf(correctLetter);//to get space between
+			//System.out.println("In replaceCorrect word index = " + wordIndex);
 
-			while(wordIndex >= 0){
+			while(wordIndex >= 0)
+			{
+				System.out.println("wordIndex is greater than 0");
 				correct.replace(wordIndex*2, wordIndex*2 + 1, correctLetter);
 				wordIndex = answer.indexOf(correctLetter, wordIndex+1);//to get space between
 			}
 			guess.append(correctLetter);
 			guess.append(" ");
 			System.out.println("Letters you Guessed: " + guess);
-		}
+	}
 		
-	private void replaceWrong(String wrongLetter){
+	private void replaceWrong(String wrongLetter)
+	{
 			guess.append(wrongLetter);
 			guess.append(" ");
 			System.out.println("Letters you Guessed: " + guess);
-		}
+	}
 	
 /*a public instance method which tries to "process" the char (guess)
 parameter, but returns 0 if the char was already guessed 
@@ -129,17 +144,19 @@ declare public static final int variables or enum type.*/
 		//guessLeft;
 		//String letter;
 		System.out.println("Playing new Game");
+		
 		//while(chance > 0)
 		//{
 			System.out.println("Current word: \n" + correct);
 			//System.out.println("Current Answer: \n" + answer);
-			letter = getString();
+			//letter = getString();
 			if(judge(letter) && !isChecked(letter))
 			{
-				//System.out.println("Correct!!");
+				System.out.println("Correct!!");
 				replaceCorrect(letter);
 				if(!isComplete())
 				{
+					System.out.println("correct but not complete yet");
 					return Status.correctGuess;
 				}
 			} 
@@ -151,6 +168,7 @@ declare public static final int variables or enum type.*/
 			else 
 			{
 				//chance--;
+				System.out.println("Wrong!");
 				guessLeft = getLeftChance() - 1;;
 				replaceWrong(letter);
 				return Status.incorrectGuess;

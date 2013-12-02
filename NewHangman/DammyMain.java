@@ -15,7 +15,7 @@ public class DammyMain
 		System.out.println("Let's hangman!");
 		Hangman hangman = new Hangman();
 		String answer = hangman.getAnswer();
-		System.out.println("answer = " + answer);
+		//System.out.println("answer = " + answer);
 		hangman.newgame();
 		int index = 0;
 		int chance;
@@ -23,7 +23,7 @@ public class DammyMain
 		chance = hangman.getLeftChance();
 		Scanner scan = new Scanner(System.in);
 		NewHangman.Hangman.Status resultant = Status.inprogress;
-		do
+		/*do
 		{
 			System.out.println("Enter a letter: ");
 			aletter = scan.nextLine();
@@ -32,7 +32,7 @@ public class DammyMain
 			System.out.println("resultant " + resultant);
 			index++;
 		}while(resultant != Status.win&&resultant != Status.lose);
-		if(index == letters.length)
+		/*if(index == letters.length)
 		{
 			System.out.println("challenged All Letters");
 		}
@@ -48,72 +48,18 @@ public class DammyMain
 		{
 			System.out.println("Done by other ways");
 		}
-			
-		
-		
+		*/	
 		/**
-		hangman.processGuess("e");
-		System.out.println("-------------After putting E------------");
-		System.out.println("guessed letters:" +hangman.getGuess());
-		System.out.println("current answer:" +hangman.getCurrentAnswer());
-		System.out.println("left chance" + hangman.getLeftChance());
-		hangman.processGuess("d");
-		System.out.println("-------------After putting D------------");
-		System.out.println("guessed letters:" +hangman.getGuess());
-		System.out.println("current answer:" +hangman.getCurrentAnswer());
-		System.out.println("left chance" + hangman.getLeftChance());
-		hangman.processGuess("a");
-		System.out.println("-------------After putting A----------------");
-		System.out.println("guessed letters:" +hangman.getGuess());
-		System.out.println("current answer:" +hangman.getCurrentAnswer());
-		System.out.println("left chance" + hangman.getLeftChance());
-		hangman.processGuess("t");
-		System.out.println("-------------After putting T------------");
-		System.out.println("guessed letters:" +hangman.getGuess());
-		System.out.println("current answer:" +hangman.getCurrentAnswer());
-		System.out.println("left chance" + hangman.getLeftChance());
-		hangman.processGuess("o");
-		System.out.println("-------------After putting O------------");
-		System.out.println("guessed letters:" +hangman.getGuess());
-		System.out.println("current answer:" +hangman.getCurrentAnswer());
-		System.out.println("left chance" + hangman.getLeftChance());
-		hangman.processGuess("p");
-		System.out.println("-------------After putting P------------");
-		System.out.println("guessed letters:" +hangman.getGuess());
-		System.out.println("current answer:" +hangman.getCurrentAnswer());
-		System.out.println("left chance" + hangman.getLeftChance());
-		hangman.processGuess("v");
-		System.out.println("-------------After putting V------------");
-		System.out.println("guessed letters:" +hangman.getGuess());
-		System.out.println("current answer:" +hangman.getCurrentAnswer());
-		System.out.println("left chance" + hangman.getLeftChance());
-		hangman.processGuess("w");
-		System.out.println("-------------After putting W------------");
-		System.out.println("guessed letters:" +hangman.getGuess());
-		System.out.println("current answer:" +hangman.getCurrentAnswer());
-		System.out.println("left chance" + hangman.getLeftChance());
-		hangman.processGuess("m");
-		System.out.println("-------------After putting M------------");
-		System.out.println("guessed letters:" +hangman.getGuess());
-		System.out.println("current answer:" +hangman.getCurrentAnswer());
-		System.out.println("left chance" + hangman.getLeftChance());
-		hangman.processGuess("y");
-		System.out.println("-------------After putting Y------------");
-		System.out.println("guessed letters:" +hangman.getGuess());
-		System.out.println("current answer:" +hangman.getCurrentAnswer());
-		System.out.println("left chance" + hangman.getLeftChance());
-		*/
 		
-		/*
-		ConsoleHangmanGame hangman = new ConsoleHangmanGame();
+		ConsoleHangmanGame consoleHangman = new ConsoleHangmanGame();
 		System.out.println("--------Start playing----------");
-		//hangman.playAGame();
+		consoleHangman.playAGame();
 		
 		System.out.println("--------display-------------");
-		hangman.display();
-		System.out.println("After display");
-		*/
+		consoleHangman.display();
+		//System.out.println("After display");
 		
+		*/
 		
 	}
 

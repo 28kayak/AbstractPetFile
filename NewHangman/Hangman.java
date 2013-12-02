@@ -11,6 +11,7 @@ public class Hangman
 	private StringBuilder guess;
 	Scanner scan = new Scanner(System.in);
 	public enum Status {checked, correctGuess, incorrectGuess, win, lose, inprogress}
+	private Status result;
 	
 	public Hangman()
 	{
@@ -39,6 +40,10 @@ public class Hangman
 		String guessing;
 		guessing = guess.toString();
 		return guessing;
+	}
+	public Status getStatus()
+	{
+		return result;
 	}
 	
 	
@@ -134,7 +139,8 @@ declare public static final int variables or enum type.*/
 	{
 		//guessLeft;
 		//String letter;
-		Status result = Status.inprogress;
+		
+		result = Status.inprogress;
 		//System.out.println("Playing new Game");
 		
 		//while(guessLeft > 0)

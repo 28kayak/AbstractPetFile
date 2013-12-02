@@ -47,7 +47,7 @@ public class WordDatabase implements Iterator<String>
 	
 	public String current_string_returner()
 	{
-		shuffle();
+		//shuffle();
 		if(checkMore()) 
 		{
 			return  ite.next();

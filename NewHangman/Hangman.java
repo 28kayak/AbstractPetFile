@@ -6,7 +6,7 @@ public class Hangman
 {
 	private WordDatabase obj;
 	private String answer;
-	private int guseeLeft;
+	private int guessLeft;
 	private StringBuilder correct;
 	private StringBuilder guess;
 	Scanner scan = new Scanner(System.in);
@@ -17,25 +17,51 @@ public class Hangman
 		answer = obj.current_string_returner();
 		guess = new StringBuilder();
 	}
+	//accessor methods
+	public String getAnswer()
+	{
+		return answer;
+	}
+	public int getLeftChance()
+	{
+		return guessLeft;
+	}
+	public String getCurrentAnswer()
+	{
+		String currentAnswer;
+		currentAnswer = correct.toString();
+		return currentAnswer;
+	}
+	public String getGuess()
+	{
+		String guessing;
+		guessing = guess.toString();
+		return guessing;
+	}
+	
+	
 	
 	public void newgame()
 	{//re-initialize the (int)wrong guess so far
 		
-		try{
-		answer = obj.current_string_returner();
-		correct = new StringBuilder();
-		guess = new StringBuilder();
-		System.out.println("the answer is "+answer);
+		try
+		{
+			answer = obj.current_string_returner();
+			correct = new StringBuilder();
+			guess = new StringBuilder();
+			System.out.println("the answer is "+answer);
 		
-		while(answer != null){
-			for(int i=0; i<answer.length();i++){
+			while(answer != null)
+			{
+				for(int i=0; i<answer.length();i++){
 				correct.append("_ ");
 			}
 		}
-		}catch(ArrayIndexOutOfBoundsException ie) {
+		}catch(ArrayIndexOutOfBoundsException ie) 
+		{
 			ie.printStackTrace();
 			System.exit(101);
-			}
+		}
 	}
 	
 	private boolean isComplete() {

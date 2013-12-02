@@ -17,12 +17,17 @@ public class DammyMain
 		String answer = hangman.getAnswer();
 		System.out.println("answer = " + answer);
 		hangman.newgame();
-		int index;
+		int index = 0;
+		int chance;
+		chance = hangman.getLeftChance();
 		NewHangman.Hangman.Status resultant = Status.inprogress;
-		for(index = 0; index <letters.length||resultant == Status.lose||resultant == Status.win; index++)
+		do
 		{
 			resultant = hangman.processGuess(letters[index]);
-		}
+			chance = hangman.getLeftChance();
+			System.out.println("resultant " + resultant);
+			index++;
+		}while(resultant != Status.win&&resultant != Status.lose);
 		if(index == letters.length)
 		{
 			System.out.println("challenged All Letters");

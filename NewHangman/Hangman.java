@@ -153,13 +153,16 @@ declare public static final int variables or enum type.*/
 					
 					//return Status.correctGuess; 
 					result = Status.correctGuess;
-					System.out.println("result = " + result);
+					//System.out.println("result= " + result);
+					return result;
 				}
 				else
 				{
 					//System.out.println("You Win!!");
 					result = Status.win;
 					System.out.println("result = " + result);
+					return result;
+					
 				}
 			} 
 			else if(isChecked(letter))
@@ -167,23 +170,29 @@ declare public static final int variables or enum type.*/
 				System.out.println("You already guessed " + letter);
 				result = Status.checked;
 				System.out.println("result = " + result);
+				return result;
 			}
 			else 
 			{
 				//chance--;
 				System.out.println("Wrong!");
-				guessLeft = getLeftChance() - 1;
+				guessLeft--;
 				System.out.println("guessLeft = "+ guessLeft);
 				replaceWrong(letter);
 				result = Status.incorrectGuess;
 				System.out.println("result = " + result);
 				//System.out.println("Wrong! You have "+chance+" guesses left.");
-				if(guessLeft == 0)
+				if(guessLeft <= 0)
 				{
 					//System.out.println("You Lose!! The correct answer was '" + answer + "'");
 					result = Status.lose;
 					System.out.println("result = " + result);
-				} 
+					return result;
+				}
+				else
+				{
+					return result;
+				}
 				/*
 				else 
 				{
@@ -196,8 +205,8 @@ declare public static final int variables or enum type.*/
 				//append guesses one, increment one to incorrect;
 			}	
 		//}//while
-		System.out.println("result = " + result);
-		return result;
+		//System.out.println("result = " + result);
+		//return result;
 	
 	}//processGuess
 	

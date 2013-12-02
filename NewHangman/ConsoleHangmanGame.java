@@ -27,12 +27,12 @@ public class ConsoleHangmanGame
 		}
 		do
 		{
-			System.out.println("do-while");
+			//System.out.println("do-while");
 			System.out.println("Enter next letter: ");
 			letter = scan.nextLine();
 			result = hangman.processGuess(letter);
 			System.out.println("result = " + result);
-		}while(result == Status.win||result == Status.lose);
+		}while(result != Status.win && result != Status.lose);
 
 		success = true;
 		return success;

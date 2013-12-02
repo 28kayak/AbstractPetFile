@@ -17,6 +17,7 @@ public class Hangman
 		obj = new WordDatabase();
 		answer = obj.next();
 		guess = new StringBuilder();
+		guessLeft = getAnswer().length();
 	}
 	//accessor methods
 	public String getAnswer()
@@ -52,7 +53,7 @@ public class Hangman
 		if(answer != null)
 		{
 			//System.out.println("while loop");
-			for(int i=0; i<=newLength;i++)
+			for(int i=0; i<newLength;i++)
 			{
 				correct.append("_ ");
 			}
@@ -107,14 +108,14 @@ public class Hangman
 			}
 			guess.append(correctLetter);
 			guess.append(" ");
-			System.out.println("Letters you Guessed: " + guess);
+			System.out.println("Letters you Guessed: " + guess+ "From replace Correct");
 	}
 		
 	private void replaceWrong(String wrongLetter)
 	{
 			guess.append(wrongLetter);
 			guess.append(" ");
-			System.out.println("Letters you Guessed: " + guess);
+			System.out.println("Letters you Guessed: " + guess+ "From replace Wrong");
 	}
 	
 /*a public instance method which tries to "process" the char (guess)
@@ -145,7 +146,7 @@ declare public static final int variables or enum type.*/
 			{
 				System.out.println("Correct!!");
 				replaceCorrect(letter);
-				System.out.println("After replace___Current word: \n" + correct);
+				//System.out.println("After replace___Current word: \n" + correct);
 				if(!isComplete())
 				{
 					System.out.println("correct but not complete yet");
@@ -154,34 +155,48 @@ declare public static final int variables or enum type.*/
 					result = Status.correctGuess;
 					System.out.println("result = " + result);
 				}
+				else
+				{
+					//System.out.println("You Win!!");
+					result = Status.win;
+					System.out.println("result = " + result);
+				}
 			} 
 			else if(isChecked(letter))
 			{
 				System.out.println("You already guessed " + letter);
 				result = Status.checked;
+				System.out.println("result = " + result);
 			}
 			else 
 			{
 				//chance--;
 				System.out.println("Wrong!");
-				guessLeft = getLeftChance() - 1;;
+				guessLeft = getLeftChance() - 1;
+				System.out.println("guessLeft = "+ guessLeft);
 				replaceWrong(letter);
 				result = Status.incorrectGuess;
+				System.out.println("result = " + result);
 				//System.out.println("Wrong! You have "+chance+" guesses left.");
-				
+				if(guessLeft == 0)
+				{
+					//System.out.println("You Lose!! The correct answer was '" + answer + "'");
+					result = Status.lose;
+					System.out.println("result = " + result);
+				} 
+				/*
+				else 
+				{
+					//System.out.println("You Win!!");
+					result = Status.win;
+					System.out.println("result = " + result);
+				}
+				*/
 				
 				//append guesses one, increment one to incorrect;
 			}	
 		//}//while
-		if(guessLeft == 0)
-		{
-			//System.out.println("You Lose!! The correct answer was '" + answer + "'");
-			result = Status.lose;
-		} else 
-		{
-			//System.out.println("You Win!!");
-			result = Status.win;
-		}
+		System.out.println("result = " + result);
 		return result;
 	
 	}//processGuess

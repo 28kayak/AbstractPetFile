@@ -122,9 +122,19 @@ for example,
 1 if guessedcorrectly, but hasn't completed the answer word, -1 if guessed incorrectly, 
 2 if got the whole answer, -2 if ran out of guesses. If using an int status,
 declare public static final int variables or enum type.*/
+	private enum Status {checked, correctGuess, incorrectGuess, complete, ranout}
 	
-	public int process(char gue){
-		
+	public Status process(String gues)
+	{
+		if(isChecked(gues))
+		{//if it is contained(checked)
+			System.out.println("the letter has been checked");
+			return Status.checked;
+		}
+		if(judge(gues))
+		{
+			
+		}
 		
 		return 0;
 	}

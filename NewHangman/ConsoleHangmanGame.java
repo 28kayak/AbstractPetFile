@@ -2,6 +2,16 @@ package NewHangman;
 
 public class ConsoleHangmanGame
 {
-	Hangman hangman = new Hangman();
+	private Hangman hangman;
+	
+	ConsoleHangmanGame()
+	{
+		hangman = new Hangman();
+	}
+	public boolean detemineIfplaying()
+	{
+		
+	}
+	
 
 }//class

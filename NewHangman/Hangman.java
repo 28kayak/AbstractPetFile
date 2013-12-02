@@ -42,34 +42,29 @@ public class Hangman
 	
 	
 	public void newgame()
-	{//re-initialize the (int)wrong guess so far
-		
-		try
+	{//re-initialize the (int)wrong guess so far		
+		answer = obj.next();
+		correct = new StringBuilder();
+		guess = new StringBuilder();
+		System.out.println("the answer is "+answer);
+		int newLength = answer.length() ;
+		if(answer != null)
 		{
-			answer = obj.next();
-			correct = new StringBuilder();
-			guess = new StringBuilder();
-			System.out.println("the answer is "+answer);
-			int newLength = answer.length() ;
-			if(answer != null)
+			//System.out.println("while loop");
+			for(int i=0; i<=newLength;i++)
 			{
-				//System.out.println("while loop");
-				
-				for(int i=0; i<=newLength;i++)
-				{
-					//System.out.println("answer length = " + answer.length());
-					//System.out.println("newLength = " + newLength);
-					//System.out.println("i = " + i);
-					correct.append("_ ");
-					//System.out.println("After appending correct");
-					//System.out.println("the answer is "+answer);
-					//System.out.println("Current Ans = " + getCurrentAnswer());
-				}
+				//System.out.println("answer length = " + answer.length());
+				//System.out.println("newLength = " + newLength);
+				//System.out.println("i = " + i);
+				correct.append("_ ");
+				//System.out.println("After appending correct");
+				//System.out.println("the answer is "+answer);
+				//System.out.println("Current Ans = " + getCurrentAnswer());
 			}
-		}catch(ArrayIndexOutOfBoundsException ie) 
+		}
+		else	 
 		{
-			ie.printStackTrace();
-			System.exit(101);
+			throw new ArrayIndexOutOfBoundsException("WordDatabase runs out of words");
 		}
 	}
 	

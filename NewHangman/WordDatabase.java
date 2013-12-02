@@ -7,8 +7,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Formatter;
-import java.util.Scanner;
 import java.util.*;
 
 /*The WordDatabase must implement Interface<String> and include the following (changes are below):
@@ -31,7 +29,7 @@ and now all you return is your instance ListIterator variable's hasNext().
 - override void remove(), but do nothing in it
 NOTE: YOU ARE NOT ALLOWED TO CONVERT THE ArrayList INTO AN ARRAY!!!!
 */
-public class WordDatabase 
+public class WordDatabase implements Iterator<String>
 {
 	private ArrayList<String> al = new ArrayList<String>();//private instance ArrayList of String
 	private Iterator<String> ite;
@@ -39,7 +37,7 @@ public class WordDatabase
 	public WordDatabase()
 	{
 		read();
-		
+		shuffle();
 	}//default constructor
 	
 	public int array_size()
@@ -61,6 +59,11 @@ public class WordDatabase
 	public void shuffle()
 	{
 		Collections.shuffle(al);
+		/**for(int i = 0; i < al.size(); i++)
+		{
+			System.out.println(i + al.get(i));
+		}
+		*/
 		
 	}//end shuffle
 	
@@ -69,7 +72,7 @@ public class WordDatabase
 		ite = al.iterator();
 		if(ite.hasNext()) 
 		{
-			return true;
+			return true;		
 		}
 		return false;
 	}
@@ -124,5 +127,11 @@ public class WordDatabase
 		}
 		*/
 	}//end read
+	@Override 
+	public void remove()
+	{
+		//nothing to do
+	}
+	
 	
 }//end/ class

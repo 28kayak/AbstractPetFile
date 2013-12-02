@@ -23,50 +23,66 @@ and now all you return is your instance ListIterator variable's hasNext().
 - override void remove(), but do nothing in it
 NOTE: YOU ARE NOT ALLOWED TO CONVERT THE ArrayList INTO AN ARRAY!!!!
 */
-public class WordDatabase {
+public class WordDatabase implements Interface<String>
+{
 	private ArrayList<String> al = new ArrayList<String>();//private instance ArrayList of String
 	private Iterator<String> ite;
 	
-	public WordDatabase(){
+	public WordDatabase()
+	{
 		read();
 		
 	}//default constructor
 	
-	public int array_size(){ return al.size();}
+	public int array_size()
+	{ 
+		return al.size();
+	}
 	
-	public String current_string_returner(){
+	public String current_string_returner()
+	{
 		shuffle();
-		if(checkMore()) {
+		if(checkMore()) 
+		{
 			return  ite.next();
-			}
+		}
 		else 
 			return null;
 	}//end current_index_returner
 	
-	public void shuffle(){
+	public void shuffle()
+	{
 		Collections.shuffle(al);
 		
 	}//end shuffle
 	
-	public boolean checkMore(){
+	public boolean checkMore()
+	{
 		ite = al.iterator();
-		if(ite.hasNext()) return true;
+		if(ite.hasNext()) 
+		{
+			return true;
+		}
 		return false;
 	}
 	
-	private void read(){
-		try {
+	private void read()
+	{
+		try 
+		{
 			BufferedReader br = new BufferedReader(new FileReader("ProgHW6-InputFile.txt"));
 			String line1;
-			while ((line1 = br.readLine()) != null) { //read the row
-			al.add(line1); // ArrayListÇ…çsÇäiî[
-			//System.out.println(line1);
+			while ((line1 = br.readLine()) != null)
+			{ //read the row
+				al.add(line1); // ArrayListÇ…çsÇäiî[
+				//System.out.println(line1);
 			}
 			br.close();
 		
-	}catch (IOException ie) {
-		ie.printStackTrace();
-		System.exit(101);
+		}catch (IOException ie)
+		{
+			ie.printStackTrace();
+			System.exit(101);
 		}
 	}//end read
 }//end/ class

@@ -2,7 +2,8 @@ package NewHangman;
 
 import java.io.*;
 import java.util.*;
-public class Hangman {
+public class Hangman
+{
 	private WordDatabase obj;
 	private String answer;
 	private int guseeLeft;
@@ -10,13 +11,15 @@ public class Hangman {
 	private StringBuilder guess;
 	Scanner scan = new Scanner(System.in);
 	
-	public Hangman(){
+	public Hangman()
+	{
 		obj = new WordDatabase();
 		answer = obj.current_string_returner();
 		guess = new StringBuilder();
 	}
 	
-	public void newgame(){//re-initialize the (int)wrong guess so far
+	public void newgame()
+	{//re-initialize the (int)wrong guess so far
 		
 		try{
 		answer = obj.current_string_returner();

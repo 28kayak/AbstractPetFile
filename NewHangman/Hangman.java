@@ -14,7 +14,7 @@ public class Hangman
 	public Hangman()
 	{
 		obj = new WordDatabase();
-		answer = obj.current_string_returner();
+		answer = obj.next();
 		guess = new StringBuilder();
 	}
 	//accessor methods
@@ -46,7 +46,7 @@ public class Hangman
 		
 		try
 		{
-			answer = obj.current_string_returner();
+			answer = obj.next();
 			correct = new StringBuilder();
 			guess = new StringBuilder();
 			System.out.println("the answer is "+answer);

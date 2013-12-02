@@ -45,7 +45,7 @@ public class WordDatabase implements Iterator<String>
 		return al.size();
 	}
 	
-	public String current_string_returner()
+	/* String current_string_returner()
 	{
 		//shuffle();
 		if(checkMore()) 
@@ -55,7 +55,7 @@ public class WordDatabase implements Iterator<String>
 		else 
 			return null;
 	}//end current_index_returner
-	
+	*/
 	public void shuffle()
 	{
 		Collections.shuffle(al);
@@ -67,7 +67,7 @@ public class WordDatabase implements Iterator<String>
 		
 	}//end shuffle
 	
-	public boolean checkMore()
+	/*public boolean checkMore()
 	{
 		ite = al.iterator();
 		if(ite.hasNext()) 
@@ -76,7 +76,7 @@ public class WordDatabase implements Iterator<String>
 		}
 		return false;
 	}
-	
+	*/
 	public boolean read()
 	{
 		boolean result = false;
@@ -131,6 +131,31 @@ public class WordDatabase implements Iterator<String>
 	public void remove()
 	{
 		//nothing to do
+	}
+
+	@Override
+	public boolean hasNext()
+	{
+		ite = al.iterator();
+		if(ite.hasNext()) 
+		{
+			return true;		
+		}
+		return false;
+	}
+
+	@Override
+	public String next() 
+	{
+		if(hasNext()) 
+		{
+			return  ite.next();
+		}
+		else 
+		{
+			return null;
+		}
+		//return null;
 	}
 	
 	

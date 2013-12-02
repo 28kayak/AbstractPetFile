@@ -122,11 +122,45 @@ for example,
 1 if guessedcorrectly, but hasn't completed the answer word, -1 if guessed incorrectly, 
 2 if got the whole answer, -2 if ran out of guesses. If using an int status,
 declare public static final int variables or enum type.*/
-	private enum Status {checked, correctGuess, incorrectGuess, complete, ranout}
+	private enum Status {checked, correctGuess, incorrectGuess, win, lost}
 	
-	public Status process(String gues)
+	public Status processGuess(String gues)
 	{
-		if(isChecked(gues))
+		int chance = 6;
+		String letter;
+		System.out.println("Playing new Game");
+		while(chance > 0){
+			System.out.println("Current word: \n" + correct);
+			//System.out.println("Current Answer: \n" + answer);
+			letter = getString();
+			if(judge(letter) && !isChecked(letter)){
+				//System.out.println("Correct!!");
+				replaceCorrect(letter);
+				if(isComplete()){
+					break;
+				}
+			} 
+			else if(isChecked(letter)){
+				System.out.println("You already guessed " + letter);
+			}
+			else {
+				chance--;
+				replaceWrong(letter);
+				System.out.println("Wrong! You have "+chance+" guesses left.");
+				
+				//append guesses one, increment one to incorrect;
+			}	
+		}//while
+		if(chance == 0){
+			System.out.println("You Lose!! The correct answer was '" + answer + "'");
+		} else {
+			System.out.println("You Win!!");
+		}
+	}
+		
+		
+		
+		/*if(isChecked(gues))
 		{//if it is contained(checked)
 			System.out.println("the letter has been checked");
 			return Status.checked;
@@ -135,7 +169,7 @@ declare public static final int variables or enum type.*/
 		{
 			
 		}
-		
+		*/
 		return 0;
 	}
 	

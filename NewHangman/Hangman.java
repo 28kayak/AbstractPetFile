@@ -135,11 +135,11 @@ declare public static final int variables or enum type.*/
 		//guessLeft;
 		//String letter;
 		Status result = Status.inprogress;
-		System.out.println("Playing new Game");
+		//System.out.println("Playing new Game");
 		
 		//while(guessLeft > 0)
 		//{
-			System.out.println("Current word: \n" + correct);
+			
 			//System.out.println("Current Answer: \n" + answer);
 			//letter = getString();
 			if(judge(letter) && !isChecked(letter))
@@ -147,6 +147,7 @@ declare public static final int variables or enum type.*/
 				System.out.println("Correct!!");
 				replaceCorrect(letter);
 				//System.out.println("After replace___Current word: \n" + correct);
+				System.out.println("Current word: \n" + correct);
 				if(!isComplete())
 				{
 					System.out.println("correct but not complete yet");

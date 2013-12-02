@@ -1,7 +1,7 @@
 package NewHangman;
 
 import NewHangman.Hangman.Status;
-
+import java.util.Scanner;
 public class DammyMain 
 {
 	public static void main(String [] args)
@@ -19,11 +19,15 @@ public class DammyMain
 		hangman.newgame();
 		int index = 0;
 		int chance;
+		String aletter;
 		chance = hangman.getLeftChance();
+		Scanner scan = new Scanner(System.in);
 		NewHangman.Hangman.Status resultant = Status.inprogress;
 		do
 		{
-			resultant = hangman.processGuess(letters[index]);
+			System.out.println("Enter a letter: ");
+			aletter = scan.nextLine();
+			resultant = hangman.processGuess(aletter);
 			chance = hangman.getLeftChance();
 			System.out.println("resultant " + resultant);
 			index++;

@@ -1,6 +1,6 @@
 package NewHangman;
 
-import java.io.*;
+//import java.io.*;
 import java.util.*;
 public class Hangman
 {
@@ -122,56 +122,54 @@ for example,
 1 if guessedcorrectly, but hasn't completed the answer word, -1 if guessed incorrectly, 
 2 if got the whole answer, -2 if ran out of guesses. If using an int status,
 declare public static final int variables or enum type.*/
-	private enum Status {checked, correctGuess, incorrectGuess, win, lost}
+	private enum Status {checked, correctGuess, incorrectGuess, win, lose}
 	
-	public Status processGuess(String gues)
+	public Status processGuess(String letter)
 	{
-		int chance = 6;
-		String letter;
+		//guessLeft;
+		//String letter;
 		System.out.println("Playing new Game");
-		while(chance > 0){
+		//while(chance > 0)
+		//{
 			System.out.println("Current word: \n" + correct);
 			//System.out.println("Current Answer: \n" + answer);
 			letter = getString();
-			if(judge(letter) && !isChecked(letter)){
+			if(judge(letter) && !isChecked(letter))
+			{
 				//System.out.println("Correct!!");
 				replaceCorrect(letter);
-				if(isComplete()){
-					break;
+				if(!isComplete())
+				{
+					return Status.correctGuess;
 				}
 			} 
-			else if(isChecked(letter)){
+			else if(isChecked(letter))
+			{
 				System.out.println("You already guessed " + letter);
+				return Status.checked;
 			}
-			else {
-				chance--;
+			else 
+			{
+				//chance--;
+				guessLeft = getLeftChance() - 1;;
 				replaceWrong(letter);
-				System.out.println("Wrong! You have "+chance+" guesses left.");
+				return Status.incorrectGuess;
+				//System.out.println("Wrong! You have "+chance+" guesses left.");
 				
 				//append guesses one, increment one to incorrect;
 			}	
-		}//while
-		if(chance == 0){
-			System.out.println("You Lose!! The correct answer was '" + answer + "'");
-		} else {
-			System.out.println("You Win!!");
-		}
-	}
-		
-		
-		
-		/*if(isChecked(gues))
-		{//if it is contained(checked)
-			System.out.println("the letter has been checked");
-			return Status.checked;
-		}
-		if(judge(gues))
+		//}//while
+		if(guessLeft == 0)
 		{
-			
+			System.out.println("You Lose!! The correct answer was '" + answer + "'");
+			return Status.lose;
+		} else 
+		{
+			System.out.println("You Win!!");
+			return Status.win;
 		}
-		*/
-		return 0;
-	}
+	
+	}//processGuess
 	
 	}
 	

@@ -1,6 +1,14 @@
 package NewHangman;
 
-import java.io.*;
+//import java.io.*;
+//どうせなので、どんなクラスがfile をreadするのに必要なのか、list upしておきます。
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Formatter;
+import java.util.Scanner;
 import java.util.*;
 
 /*The WordDatabase must implement Interface<String> and include the following (changes are below):
@@ -23,7 +31,7 @@ and now all you return is your instance ListIterator variable's hasNext().
 - override void remove(), but do nothing in it
 NOTE: YOU ARE NOT ALLOWED TO CONVERT THE ArrayList INTO AN ARRAY!!!!
 */
-public class WordDatabase implements Interface<String>
+public class WordDatabase 
 {
 	private ArrayList<String> al = new ArrayList<String>();//private instance ArrayList of String
 	private Iterator<String> ite;
@@ -66,16 +74,46 @@ public class WordDatabase implements Interface<String>
 		return false;
 	}
 	
-	private void read()
+	public boolean read()
 	{
-		try 
+		boolean result = false;
+		try
+		{
+			Scanner input = new Scanner(new File("C:\\Users\\Kaya\\workspace2013May\\Haruki_File\\src\\NewHangman\\ProgHW6-InputFile.txt"));
+			
+			while(input.hasNext())
+			{
+				//System.out.println(input.next());
+				al.add(input.next());
+				
+				result = true;
+			}
+			System.out.println("After while");
+			for(int i = 0; i < al.size(); i++)
+			{
+				System.out.println(i + al.get(i));
+			}
+		}
+		catch(FileNotFoundException ex)
+		{
+			System.out.println(ex.getMessage());
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		//input.close();
+		return result;
+		
+		
+		/**try 
 		{
 			BufferedReader br = new BufferedReader(new FileReader("ProgHW6-InputFile.txt"));
 			String line1;
 			while ((line1 = br.readLine()) != null)
 			{ //read the row
 				al.add(line1); // ArrayListに行を格納
-				//System.out.println(line1);
+				System.out.println(line1);
 			}
 			br.close();
 		
@@ -84,5 +122,7 @@ public class WordDatabase implements Interface<String>
 			ie.printStackTrace();
 			System.exit(101);
 		}
+		*/
 	}//end read
+	
 }//end/ class

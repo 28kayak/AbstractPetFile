@@ -16,6 +16,7 @@ public class ConsoleHangmanGame
 	public boolean playAGame()
 	{
 		boolean success = false;
+		hangman = new Hangman();
 		String letter;
 		try
 		{

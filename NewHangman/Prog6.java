@@ -12,11 +12,11 @@ public class Prog6
 		boolean playgame = false;
 		do
 		{
-			hangman.playAGame();
+			playgame = hangman.playAGame();
 			hangman.display();
 			System.out.println("Enter 'y' if you want to play hangman");
 			again = scan.nextLine().toLowerCase();
-		}while(again.compareTo("y")==0);
+		}while(again.compareTo("y")==0 && playgame != false);
 		
 		/*
 		while ((again.compareTo("y") == 0))

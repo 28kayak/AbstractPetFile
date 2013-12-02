@@ -21,6 +21,13 @@ public class DammyMain
 		System.out.println("left chance" + hangman.getLeftChance());
 		*/
 		
+		
+		ConsoleHangmanGame hangman = new ConsoleHangmanGame();
+		hangman.playAGame();
+		System.out.println("Start playing");
+		hangman.display();
+		
+		
 	}
 
 }

@@ -145,11 +145,14 @@ declare public static final int variables or enum type.*/
 			{
 				System.out.println("Correct!!");
 				replaceCorrect(letter);
+				System.out.println("After replace___Current word: \n" + correct);
 				if(!isComplete())
 				{
 					System.out.println("correct but not complete yet");
+					
 					//return Status.correctGuess; 
 					result = Status.correctGuess;
+					System.out.println("result = " + result);
 				}
 			} 
 			else if(isChecked(letter))
@@ -165,6 +168,7 @@ declare public static final int variables or enum type.*/
 				replaceWrong(letter);
 				result = Status.incorrectGuess;
 				//System.out.println("Wrong! You have "+chance+" guesses left.");
+				
 				
 				//append guesses one, increment one to incorrect;
 			}	

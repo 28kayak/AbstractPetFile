@@ -137,7 +137,7 @@ for example,
 1 if guessedcorrectly, but hasn't completed the answer word, -1 if guessed incorrectly, 
 2 if got the whole answer, -2 if ran out of guesses. If using an int status,
 declare public static final int variables or enum type.*/
-	private enum Status {checked, correctGuess, incorrectGuess, win, lose}
+	public enum Status {checked, correctGuess, incorrectGuess, win, lose}
 	
 	public Status processGuess(String letter)
 	{

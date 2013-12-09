@@ -83,19 +83,7 @@ public abstract class Pet implements Comparable<Pet>
         {
         	int specifiedStr;
         	specifiedStr = name.compareToIgnoreCase(aPet.name);
-        	if(specifiedStr > 0)
-        	{
-        		
-        	}
-        	else if(specifiedStr == 0)
-        	{
-        		
-        	}
-        	else 
-        	{
-        		
-        	}
-        	return 0;
+        	return specifiedStr;
         }
         
         

@@ -1,7 +1,7 @@
 package LastHW;
 
 import java.util.*;
-public abstract class Pet
+public abstract class Pet implements Comparable<Pet>
 {
         protected String name; //maybe need to declare as a private variable
         protected int birthyear;//same here
@@ -65,6 +65,37 @@ public abstract class Pet
                 Calendar cal = new GregorianCalendar();
                 int currentyear = cal.get(Calendar.YEAR);
                 return (currentyear - birthyear);
+        }
+        static void print(Pet[] pets)
+    	{
+    		/*for(int index = 0; index < pets.length; index++)
+    		{
+    			System.out.println(pets[index].toString() 
+    			+"\nHuman Years = "+ pets[index].convertYears()
+    			+", Says " +pets[index].speak());
+    		}
+    		//System.out.println("There is/are"+count+"indoor cat(s)");
+    		 
+    		 */
+    	}
+        @Override
+        public int compareTo(Pet aPet)
+        {
+        	int specifiedStr;
+        	specifiedStr = name.compareToIgnoreCase(aPet.name);
+        	if(specifiedStr > 0)
+        	{
+        		
+        	}
+        	else if(specifiedStr == 0)
+        	{
+        		
+        	}
+        	else 
+        	{
+        		
+        	}
+        	return 0;
         }
         
         

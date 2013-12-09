@@ -16,7 +16,15 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> implements Clo
 	{
 		for (int i = 0; i < objects.length; i++)
 		{
-			insert(objects[i]);
+			if(insert(objects[i]))
+			{
+				//inorder();
+				System.out.println(objects[i].toString());
+			}
+			else
+			{
+				System.out.println("not inserted");
+			}			
 		}
 	}
 
@@ -51,8 +59,10 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> implements Clo
 		if (root == null)
 		{
 			root = createNewNode(e); // Create a new root
+			System.out.println("when root = nul"+ e.toString());
 		}
-		else {
+		else 
+		{
 			// Locate the parent node
 			TreeNode<E> parent = null;
 			TreeNode<E> current = root;
@@ -77,6 +87,7 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> implements Clo
 			}
 
 		size++;
+		//System.out.println(e.toString());
 		return true; // Element inserted
 	}
 
@@ -188,65 +199,69 @@ return list; // Return an array of nodes
 /** Delete an element from the binary tree.
 * Return true if the element is deleted successfully
 * Return false if the element is not in the tree */
-public boolean delete(E e) {
-// Locate the node to be deleted and also locate its parent node
-TreeNode<E> parent = null;
-TreeNode<E> current = root;
-while (current != null) {
-  if (e.compareTo(current.element) < 0) {
-    parent = current;
-    current = current.left;
-  }
-  else if (e.compareTo(current.element) > 0) {
-    parent = current;
-    current = current.right;
-  }
-  else
-    break; // Element is in the tree pointed by current
-}
-
-if (current == null)
-  return false; // Element is not in the tree
-
-// Case 1: current has no left children
-if (current.left == null) {
-  // Connect the parent with the right child of the current node
-  if (parent == null) {
-    root = current.right;
-  }
-  else {
-    if (e.compareTo(parent.element) < 0)
-      parent.left = current.right;
-    else
-      parent.right = current.right;
-  }
-}
-else {
-  // Case 2: The current node has a left child
-  // Locate the rightmost node in the left subtree of
-  // the current node and also its parent
-  TreeNode<E> parentOfRightMost = current;
-  TreeNode<E> rightMost = current.left;
-
-  while (rightMost.right != null) {
-    parentOfRightMost = rightMost;
-    rightMost = rightMost.right; // Keep going to the right
-  }
-
-  // Replace the element in current by the element in rightMost
-  current.element = rightMost.element;
-
-  // Eliminate rightmost node
-  if (parentOfRightMost.right == rightMost)
-    parentOfRightMost.right = rightMost.left;
-  else
-    // Special case: parentOfRightMost == current
-    parentOfRightMost.left = rightMost.left;     
-}
-
-size--;
-return true; // Element inserted
-}
+	public boolean delete(E e)
+	{
+		// Locate the node to be deleted and also locate its parent node
+		TreeNode<E> parent = null;
+		TreeNode<E> current = root;
+		while (current != null)
+		{
+		  if (e.compareTo(current.element) < 0) 
+		  {
+		    parent = current;
+		    current = current.left;
+		  }
+		  else if (e.compareTo(current.element) > 0)
+		  {
+		    parent = current;
+		    current = current.right;
+		  }
+		  else
+		    break; // Element is in the tree pointed by current
+		}
+		
+		if (current == null)
+		  return false; // Element is not in the tree
+		
+		// Case 1: current has no left children
+		if (current.left == null) {
+		  // Connect the parent with the right child of the current node
+		  if (parent == null) {
+		    root = current.right;
+		  }
+		  else {
+		    if (e.compareTo(parent.element) < 0)
+		      parent.left = current.right;
+		    else
+		      parent.right = current.right;
+		  }
+		}
+		else {
+		  // Case 2: The current node has a left child
+		  // Locate the rightmost node in the left subtree of
+		  // the current node and also its parent
+		  TreeNode<E> parentOfRightMost = current;
+		  TreeNode<E> rightMost = current.left;
+		
+		  while (rightMost.right != null) {
+		    parentOfRightMost = rightMost;
+		    rightMost = rightMost.right; // Keep going to the right
+		  }
+		
+		  // Replace the element in current by the element in rightMost
+		  current.element = rightMost.element;
+		
+		  // Eliminate rightmost node
+		  if (parentOfRightMost.right == rightMost)
+		    parentOfRightMost.right = rightMost.left;
+		  else
+		    // Special case: parentOfRightMost == current
+		    parentOfRightMost.left = rightMost.left;     
+		}
+		
+		size--;
+		return true; // Element inserted
+	}
 
 /** Obtain an iterator. Use inorder. */
 public java.util.Iterator iterator() {
